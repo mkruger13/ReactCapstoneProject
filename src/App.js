@@ -13,15 +13,15 @@ import TotalPrice from "./components/TotalPrice.js";
 export default function App() {
   const location = useLocation();
   const [cartItems, setCartItems] = useState([]);
-  // State to track price.
-  const [totalPrice, setTotalPrice] = useState(0);
+  // // State to track price.
+  // const [totalPrice, setTotalPrice] = useState(0);
   // State to control visibility of total price.
   const [showTotalPrice, setShowTotalPrice] = useState(false);
 
   // Function to update price and cart.
   const handleBuy = (item) => {
-    setCartItems([...cartItems, item]);
-    setTotalPrice(totalPrice + item.price);
+    setCartItems((prevCartItems) => [...prevCartItems, item]);
+    // setTotalPrice(totalPrice + item.price);
     setShowTotalPrice(true);
   };
 
@@ -31,7 +31,7 @@ export default function App() {
       <NavMenu />
       {/* Display total price */}
       {location.pathname !== "/" && showTotalPrice && (
-        <TotalPrice totalPrice={totalPrice} />
+        <TotalPrice cartItems={cartItems} />
       )}
       {/* Routes for different pages. */}
       <Routes>

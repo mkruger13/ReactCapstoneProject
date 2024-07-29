@@ -1,3 +1,5 @@
+// Products page to display all available products that users can purchase.
+
 // Importing necessary modules.
 import React, { useState } from "react";
 import { Card, Button, Dropdown } from "react-bootstrap";
@@ -160,7 +162,7 @@ export default function Products({ handleBuy }) {
                 <Button
                   variant="primary"
                   className="mt-2"
-                  onClick={() => handleBuy(product.price)}>
+                  onClick={() => handleBuy(product)}>
                   Buy
                 </Button>
               </Card.Body>
