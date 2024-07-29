@@ -1,0 +1,40 @@
+/* Custom css styling for Home.js */
+
+.home-container {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.home-logo {
+  margin: 0 auto;
+  display: block;
+}
+
+.login-container {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.login-card {
+  background-color: #343a40;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+.login-input {
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.login-button {
+  width: 100%;
+  border-radius: 5px;
+  background-color: #007bff;
+  border: none;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}

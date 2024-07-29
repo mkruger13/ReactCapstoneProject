@@ -1,0 +1,25 @@
+/* Custom css styling for About.js */
+
+.about-container {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.logo-image {
+  margin: 0 auto;
+}
+
+.about-card {
+  background-color: #343a40;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+.store-image {
+  border-radius: 10px;
+}
+
+.text-center {
+  text-align: center;
+}
