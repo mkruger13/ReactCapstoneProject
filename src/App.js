@@ -1,4 +1,4 @@
-// Main app component for application online-store.
+// Main app component for application web-store.
 
 // Importing necessary modules and components.
 import React, { useState } from "react";
@@ -7,18 +7,21 @@ import NavMenu from "./components/NavMenu.js";
 import Home from "./components/Home.js";
 import Products from "./components/Products.js";
 import About from "./components/About.js";
+import Cart from "./components/Cart.js";
 import TotalPrice from "./components/TotalPrice.js";
 
 export default function App() {
   const location = useLocation();
+  const [cartItems, setCartItems] = useState([]);
   // State to track price.
   const [totalPrice, setTotalPrice] = useState(0);
   // State to control visibility of total price.
   const [showTotalPrice, setShowTotalPrice] = useState(false);
 
-  // Fucntion to update price.
-  const handleBuy = (price) => {
-    setTotalPrice(totalPrice + price);
+  // Function to update price and cart.
+  const handleBuy = (item) => {
+    setCartItems([...cartItems, item]);
+    setTotalPrice(totalPrice + item.price);
     setShowTotalPrice(true);
   };
 
@@ -35,6 +38,10 @@ export default function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/products" element={<Products handleBuy={handleBuy} />} />
         <Route path="/about" element={<About />} />
+        <Route
+          path="/cart"
+          element={<Cart cartItems={cartItems} setCartItems={setCartItems} />}
+        />
       </Routes>
     </div>
   );
