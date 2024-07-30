@@ -1,0 +1,36 @@
+/* Custom styling for TotalPrice.js component. */
+
+.main-content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.total-price-container {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin-bottom: 20px;
+  align-self: flex-end;
+}
+
+.total-price-container h2,
+.total-price-container h3 {
+  margin: 0 0 10px 0;
+  text-align: right;
+}
+
+.cart-items-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.cart-items-list li {
+  text-align: right;
+  margin: 5px 0;
+}

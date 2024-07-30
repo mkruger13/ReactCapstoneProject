@@ -1,5 +1,6 @@
 // Importing nessecary modules.
 import React from "react";
+import "./TotalPrice.css";
 
 // Component to display cart summary and total price.
 export default function TotalPrice({ cartItems = [] }) {
@@ -23,9 +24,9 @@ export default function TotalPrice({ cartItems = [] }) {
   }, 0);
 
   return (
-    <div className="total-price">
+    <div className="total-price-container">
       <h2>Cart Summary</h2>
-      <ul>
+      <ul className="cart-items-list">
         {cartItems.map((item) => (
           <li key={item.id}>
             {item.title ? item.title : "Unknown Item"} - R

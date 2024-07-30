@@ -39,11 +39,6 @@ body {
   padding: 20px;
 }
 
-.total-price {
-  text-align: right;
-  margin-bottom: 20px;
-}
-
 .card {
   border: 1px solid #ddd;
   border-radius: 5px;
