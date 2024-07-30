@@ -14,7 +14,7 @@ const productsData = [
       this laptop delivers efficient performance, enabling smooth multitasking and
       responsiveness for everyday computing needs.`,
     price: 6999,
-    image: require("./images/hp-15s-intel.jpg"),
+    image: require("./images/hp-15s-intel.png"),
     colors: ["Silver", "Black", "Dark Blue"],
   },
   {
@@ -26,7 +26,7 @@ const productsData = [
     processor with up to 4.70 ghz turbo boost, 10 cores and 12 threads, this laptop offers
     unparalleled performance for demanding tasks.`,
     price: 16499,
-    image: require("./images/dell.jpg"),
+    image: require("./images/dell.png"),
     colors: ["Black", "Blue", "Silver"],
   },
   {
@@ -37,7 +37,7 @@ const productsData = [
     DDR5-4800 (2x8GB) - 2 SLOT / MAX 64GB1TB PCIe Gen4x4 NVMe TLCNo Optical DriveNVIDIA RTX A500
     (4GB GDDR6 dedicated)Windows 11 Pro.`,
     price: 44990,
-    image: require("./images/hp-zbook.jpg"),
+    image: require("./images/hp-zbook.png"),
     colors: ["Black", "Red", "Blue"],
   },
   {
@@ -48,7 +48,7 @@ const productsData = [
     13th Gen Intel Core i9-13900H processor and Intel Iris Xe Graphics, this laptop ensures smooth
     visuals and responsive performance for all your tasks.`,
     price: 19999,
-    image: require("./images/msi-modern.jpg"),
+    image: require("./images/msi-modern.png"),
     colors: ["Black", "Silver"],
   },
   {
@@ -59,7 +59,7 @@ const productsData = [
     processor, this laptop is ready to tackle your daily tasks with ease and a touch of flair.
     Designed for life on the go, this laptop is lightweight and compact.`,
     price: 5499,
-    image: require("./images/rct.jpg"),
+    image: require("./images/rct.png"),
     colors: ["Silver", "Grey", "Black"],
   },
   {
@@ -68,7 +68,7 @@ const productsData = [
     description: `Apple’s thinnest and lightest notebook gets supercharged with the Apple M1 chip.
     Tackle your projects with the blazing-fast 8-core CPU.`,
     price: 14999,
-    image: require("./images/macbook-air.jpg"),
+    image: require("./images/macbook-air.png"),
     colors: ["Space Grey", "Silver"],
   },
   {
@@ -78,7 +78,7 @@ const productsData = [
     GeForce RTX 4060 Windows 11 Home 16-Inch Laptop is engineered for gamers who demand the best, featuring
     16GB of RAM for seamless multitasking and a 1TB SSD for lightning-fast load times and ample storage space.`,
     price: 27500,
-    image: require("./images/acer-predator.jpg"),
+    image: require("./images/acer-predator.png"),
     colors: ["Black", "Silver", "Grey"],
   },
   {
@@ -88,7 +88,7 @@ const productsData = [
     around, and can work and study on the spot. he laptop has a built-in camera, which can start online meetings or online
     learning, bringing you unlimited convenience whether you are in the classroom or in the office.`,
     price: 8999,
-    image: require("./images/acemagic.jpg"),
+    image: require("./images/acemagic.png"),
     colors: ["Silver", "Grey", "Black"],
   },
   {
@@ -98,7 +98,7 @@ const productsData = [
     a new benchmark for yet high-performing laptops. This model delivers an impressive combination of speed, reliability
     and versatility, enhancing your computing endeavours across various tasks and applications.`,
     price: 7776,
-    image: require("./images/acer.jpg"),
+    image: require("./images/acer.png"),
     colors: ["Silver", "Black"],
   },
   {
@@ -106,7 +106,7 @@ const productsData = [
     title: `ASUS TUF Gaming A15`,
     description: `ASUS TUF Gaming A15 FA506NF AMD Ryzen™ 5 7535HS 8GB 512GB SSD WIN 11 Home is a powerful gaming laptop`,
     price: 12899,
-    image: require("./images/asus.jpg"),
+    image: require("./images/asus.png"),
     colors: ["Black", "Dark Blue", "Grey"],
   },
 ];
@@ -129,35 +129,37 @@ export default function Products({ handleBuy }) {
       <div className="row">
         {/* Render product cards */}
         {products.map((product) => (
-          <div key={product.id} className="col-md-4">
-            <Card className="mb-4">
+          <div key={product.id} className="col-md-4 mb-4">
+            <Card className="h-100">
               <Card.Img variant="top" src={product.image} />
               <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>{product.description}</Card.Text>
-                <Card.Text>R{product.price}</Card.Text>
-                {/* Dropdown button for colour selection */}
-                <Dropdown onSelect={(e) => handleColorSelect(product.id, e)}>
-                  <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    {product.selectedColor
-                      ? product.selectedColor
-                      : "Choose Colour"}
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    {product.colors.map((color) => (
-                      <Dropdown.Item key={color} eventKey={color}>
-                        {color}
-                      </Dropdown.Item>
-                    ))}
-                  </Dropdown.Menu>
-                </Dropdown>
-                {/* Buy Button */}
-                <Button
-                  variant="primary"
-                  className="mt-2"
-                  onClick={() => handleBuy(product)}>
-                  Buy
-                </Button>
+                <Card.Text className="card-price">R{product.price}</Card.Text>
+                <div className="card-footer">
+                  {/* Dropdown button for colour selection */}
+                  <Dropdown onSelect={(e) => handleColorSelect(product.id, e)}>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                      {product.selectedColor
+                        ? product.selectedColor
+                        : "Choose Colour"}
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      {product.colors.map((color) => (
+                        <Dropdown.Item key={color} eventKey={color}>
+                          {color}
+                        </Dropdown.Item>
+                      ))}
+                    </Dropdown.Menu>
+                  </Dropdown>
+                  {/* Buy Button */}
+                  <Button
+                    variant="primary"
+                    className="mt-2"
+                    onClick={() => handleBuy(product)}>
+                    Buy
+                  </Button>
+                </div>
               </Card.Body>
             </Card>
           </div>

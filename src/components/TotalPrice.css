@@ -24,6 +24,10 @@
   text-align: right;
 }
 
+.total-price-container h3 {
+  font-size: 1.5rem;
+}
+
 .cart-items-list {
   list-style-type: none;
   padding: 0;
