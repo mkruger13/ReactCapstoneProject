@@ -4,6 +4,7 @@ export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const SET_SHIPPING = "SET_SHIPPING";
 export const SET_USER = "SET_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
 
 // Action to add an item to the cart.
 export const addToCart = (product) => ({
@@ -27,4 +28,9 @@ export const setShipping = (method) => ({
 export const setUser = (username) => ({
   type: "SET_USER",
   payload: username,
+});
+
+// Action to logout the user.
+export const logoutUser = () => ({
+  type: "LOGOUT_USER",
 });

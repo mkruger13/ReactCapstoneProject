@@ -3,12 +3,11 @@ register a new user. It contains a form with input fields for first name,
 surname, username, email, password and confirm password. It also contains
 validation for each input field and displays an error message if the input
 is invalid. If all input is valid, the user is registered and the user is
-redirected to the home page. */
+redirected to the login page. */
 
 // Importing necessary hooks and components from react and react-redux.
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setUser } from "../store/actions.js";
+import { useNavigate } from "react-router-dom";
 import "./Register.css";
 
 // Register component.
@@ -20,7 +19,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // Function to validate email.
   const validateEmail = (email) => {
@@ -64,7 +63,9 @@ export default function Register() {
     }
 
     if (valid) {
-      dispatch(setUser(username));
+      // Store the registered username.
+      localStorage.setItem("registeredUsername", username);
+      navigate("/login");
     } else {
       setErrors(errors);
     }
@@ -90,6 +91,14 @@ export default function Register() {
           onChange={(e) => setSurname(e.target.value)}
         />
         {errors.surname && <p className="error">{errors.surname}</p>}
+
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        {errors.username && <p className="error">{errors.username}</p>}
 
         <input
           type="email"
