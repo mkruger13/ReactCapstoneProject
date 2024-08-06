@@ -3,19 +3,23 @@ for rendering the cart page. The user can manage the cart and add shipping. */
 
 // Importing necessary modules.
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart, setShipping } from "../store/actions.js";
 import { Button, Modal } from "react-bootstrap";
 import "./Cart.css";
 
-export default function Cart({ cartItems, setCartItems }) {
-  const [shipping, setShipping] = useState(null);
+export default function Cart() {
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const shipping = useSelector((state) => state.cart.shipping);
+  const dispatch = useDispatch();
   const [showInfo, setShowInfo] = useState(false);
 
   const handleRemoveItem = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
+    dispatch(removeFromCart(id));
   };
 
   const handleSelectShipping = (option) => {
-    setShipping(option);
+    dispatch(setShipping(option));
   };
 
   const totalPrice =

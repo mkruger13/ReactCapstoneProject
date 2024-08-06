@@ -1,11 +1,14 @@
 /* Navigation menu component: The menu will contain links to
-the home, products, about and cart components. */
+the home, products, about and cart components, as well as user information. */
 
 // Importing necessary modules.
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function NavMenu() {
+  const username = useSelector((state) => state.user.username);
+
   return (
     <nav className="nav">
       <ul>
@@ -21,6 +24,7 @@ export default function NavMenu() {
         <li>
           <Link to="/cart">Cart</Link>
         </li>
+        {username && <li>Welcome, {username}!</li>}
       </ul>
     </nav>
   );

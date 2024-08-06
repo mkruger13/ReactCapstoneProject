@@ -1,9 +1,13 @@
 // Importing nessecary modules.
 import React from "react";
+import { useSelector } from "react-redux";
 import "./TotalPrice.css";
 
 // Component to display cart summary and total price.
-export default function TotalPrice({ cartItems = [] }) {
+export default function TotalPrice() {
+  // Get cart items from redux store.
+  const cartItems = useSelector((state) => state.cart.cartItems);
+
   // Check if cartItems is an array.
   if (!Array.isArray(cartItems)) {
     console.error("cartItems is not an array:", cartItems);
@@ -11,7 +15,7 @@ export default function TotalPrice({ cartItems = [] }) {
   }
 
   // Debugging: Log cartItems to see its structure.
-  console.log("cartItems:", cartItems);
+  console.log("TotalPrice component - cartItems:", cartItems);
 
   // Calculate total price ensuring all items have a price.
   const totalPrice = cartItems.reduce((acc, item) => {
@@ -22,6 +26,9 @@ export default function TotalPrice({ cartItems = [] }) {
       return acc;
     }
   }, 0);
+
+  // Debugging: Log total price.
+  console.log("Total price:", totalPrice);
 
   return (
     <div className="total-price-container">

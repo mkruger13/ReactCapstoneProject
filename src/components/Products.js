@@ -2,6 +2,8 @@
 
 // Importing necessary modules.
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/actions";
 import { Card, Button, Dropdown } from "react-bootstrap";
 
 // Array of products.
