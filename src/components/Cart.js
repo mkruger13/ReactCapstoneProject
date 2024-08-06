@@ -33,18 +33,20 @@ export default function Cart() {
         <p>Your cart is empty.</p>
       ) : (
         <>
-          <ul>
-            {cartItems.map((item) => (
-              <li key={item.id}>
-                {item.title} - R{item.price}
-                <Button
-                  variant="danger"
-                  onClick={() => handleRemoveItem(item.id)}>
-                  Remove
-                </Button>
-              </li>
-            ))}
-          </ul>
+          {cartItems.map((item) => (
+            <div className="cart-item" key={item.id}>
+              <div className="cart-item-details">
+                <div className="cart-item-name">{item.title}</div>
+                <div className="cart-item-price">R{item.price}</div>
+              </div>
+              <Button
+                variant="link"
+                className="remove-button"
+                onClick={() => handleRemoveItem(item.id)}>
+                <i className="bi bi-trash"></i> Remove
+              </Button>
+            </div>
+          ))}
           <div className="shipping-options">
             <label>
               <input
@@ -52,10 +54,7 @@ export default function Cart() {
                 name="shipping"
                 onChange={() => handleSelectShipping("shipping")}
               />
-              Shipping (R70)
-              <Button variant="info" onClick={() => setShowInfo(true)}>
-                i
-              </Button>
+              Delivery (R70)
             </label>
             <label>
               <input
@@ -64,6 +63,12 @@ export default function Cart() {
                 onChange={() => handleSelectShipping("pickup")}
               />
               Pickup (R30)
+              <Button
+                variant="link"
+                className="info-button"
+                onClick={() => setShowInfo(true)}>
+                <i className="bi bi-info-circle"></i>
+              </Button>
             </label>
           </div>
           <h3>Total Price: R{totalPrice}</h3>
@@ -74,8 +79,26 @@ export default function Cart() {
           <Modal.Title>Shipping Information</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Shipping will be delivered within 3-5 business days...
-          {/* Add more shipping info. */}
+          <p>
+            Computer Technology offers two safe and convenient methods for
+            receiving your order:
+          </p>
+          <ul>
+            <li>
+              <strong>Delivery</strong> - We courier directly to your door,
+              anywhere in South Africa. All delivery details are provided at
+              checkout.
+            </li>
+            <li>
+              <strong>Collect</strong> - You can choose to collect from a
+              Computer Technology store near you.
+            </li>
+          </ul>
+          <p>
+            All delivery is charged at R70 for major metropolitan areas. Pricing
+            for other areas will be calculated at checkout.
+          </p>
+          <p>Collection of orders are charged at a flat fee of R30.</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowInfo(false)}>
