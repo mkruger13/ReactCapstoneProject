@@ -5,6 +5,7 @@ import { legacy_createStore, combineReducers } from "redux";
 import cartReducer from "./cartReducer";
 import userReducer from "./userReducer";
 
+// Combining all the reducers.
 const rootReducer = combineReducers({
   cart: cartReducer,
   user: userReducer,

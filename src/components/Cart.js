@@ -34,12 +34,15 @@ export default function Cart() {
   const formatPrice = (price) =>
     price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
+  // Render cart items and shipping options.
   return (
+    // Empty cart message.
     <div className="cart-container">
       <h2>Your Cart</h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
+        // Cart items and shipping options.
         <>
           {cartItems.map((item) => (
             <div className="cart-item" key={item.id}>
@@ -52,6 +55,7 @@ export default function Cart() {
                   R{formatPrice(item.price)}
                 </div>
               </div>
+              {/* Button to remove items from cart. */}
               <Button
                 variant="link"
                 className="remove-button"
@@ -60,6 +64,7 @@ export default function Cart() {
               </Button>
             </div>
           ))}
+          {/* Select shipping/pickup options. */}
           <div className="shipping-options">
             <label>
               <input
@@ -76,6 +81,7 @@ export default function Cart() {
                 onChange={() => handleSelectShipping("pickup")}
               />
               Pickup (R30)
+              {/* Button for more info regarding shipping options. */}
               <Button
                 variant="link"
                 className="info-button"
@@ -87,6 +93,7 @@ export default function Cart() {
           <h3>Total Price: R{formatPrice(totalPrice)}</h3>
         </>
       )}
+      {/* Modal with shipping details. */}
       <Modal show={showInfo} onHide={() => setShowInfo(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Shipping Information</Modal.Title>

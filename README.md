@@ -1,3 +1,61 @@
+# Computer Technology Online Store
+
+This is an online store application created using React. The app allows users to register, log in, browse products, add items to their cart, and choose shipping methods.
+
+## Features
+
+- User registration with validation.
+- User login with state management.
+- Product listing and browsing.
+- Cart functionality with total cost calculation.
+- Shipping method selection.
+- Help information for shipping details.
+- Attractive and intuitive user interface.
+
+## Project Structure
+
+<!-- prettier-ignore -->
+- `src/`
+- `components/`
+ - `About.js`
+ - `About.css`
+ - `Cart.js`
+ - `Cart.css`
+ - `Home.js`
+ - `Home.css`
+ - `Login.js`
+ - `Login.css`
+ - `NavMenu.js`
+ - `Products.js`
+ - `Register.js`
+ - `Register.css`
+ - `TotalPrice.js`
+ - `TotalPrice.css`
+ - `images/`
+- `store/`
+ - `actions.js`
+ - `cartReducer.js`
+ - `store.js`
+ - `userReducer.js`
+- `App.js`
+- `index.js`
+- `index.css`
+
+## Usage
+
+1. Register a new user by providing your details.
+2. Log in with your username.
+3. Browse the products and add items to your cart.
+4. Select shipping method.
+5. View and manage your cart.
+
+## Technologies Used
+
+- React
+- Redux
+- React-Bootstrap
+- Bootstrap Icons
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

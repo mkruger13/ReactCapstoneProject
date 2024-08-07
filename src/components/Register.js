@@ -37,6 +37,7 @@ export default function Register() {
     let valid = true;
     let errors = {};
 
+    // Validation for each input field.
     if (!firstName) {
       errors.firstName = "First name is required.";
       valid = false;

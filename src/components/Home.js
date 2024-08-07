@@ -10,9 +10,11 @@ import "./Home.css";
 const logo = require("./images/logo.jpg");
 
 export default function Home() {
+  // Get the username from the store.
   const username = useSelector((state) => state.user.username);
 
   return (
+    // Logo Display and Welcome message.
     <Container className="home-container mt-5">
       <Row className="justify-content-center">
         <Col md={8} className="text-center">
@@ -27,6 +29,7 @@ export default function Home() {
           </Figure>
         </Col>
       </Row>
+      {/* Welcome message after user login. */}
       <Row className="justify-content-center mt-5">
         <Col md={6}>
           <Card className="login-card p-4">

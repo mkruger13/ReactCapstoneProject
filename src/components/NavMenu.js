@@ -6,9 +6,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+// Navigation menu component.
 export default function NavMenu() {
   const username = useSelector((state) => state.user.username);
 
+  // Return the navigation menu.
   return (
     <nav className="nav">
       <ul>
