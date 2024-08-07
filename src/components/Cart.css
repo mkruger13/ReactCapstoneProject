@@ -29,6 +29,11 @@
   font-weight: bold;
 }
 
+.cart-item-color {
+  font-size: 1rem;
+  color: #555;
+}
+
 .cart-item-price {
   font-size: 1.2rem;
   color: #555;

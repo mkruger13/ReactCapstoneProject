@@ -137,7 +137,12 @@ export default function Products({ handleBuy }) {
               <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>{product.description}</Card.Text>
-                <Card.Text className="card-price">R{product.price}</Card.Text>
+                <Card.Text className="card-price">
+                  R
+                  {product.price
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                </Card.Text>
                 <div className="card-footer">
                   {/* Dropdown button for colour selection */}
                   <Dropdown onSelect={(e) => handleColorSelect(product.id, e)}>

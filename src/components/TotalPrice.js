@@ -27,6 +27,10 @@ export default function TotalPrice() {
     }
   }, 0);
 
+  // Function to format price.
+  const formatPrice = (price) =>
+    price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
   // Debugging: Log total price.
   console.log("Total price:", totalPrice);
 
@@ -36,12 +40,13 @@ export default function TotalPrice() {
       <ul className="cart-items-list">
         {cartItems.map((item) => (
           <li key={item.id}>
-            {item.title ? item.title : "Unknown Item"} - R
-            {item.price ? item.price : "N/A"}
+            {item.title ? item.title : "Unknown Item"} -{" "}
+            {item.selectedColor ? `Color: ${item.selectedColor}, ` : ""}R
+            {item.price ? formatPrice(item.price) : "N/A"}
           </li>
         ))}
       </ul>
-      <h3>Total Price: R{totalPrice}</h3>
+      <h3>Total Price: R{formatPrice(totalPrice)}</h3>
     </div>
   );
 }

@@ -7,9 +7,9 @@ export const SET_USER = "SET_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
 
 // Action to add an item to the cart.
-export const addToCart = (product) => ({
+export const addToCart = (item) => ({
   type: "ADD_TO_CART",
-  payload: product,
+  payload: item,
 });
 
 // Action to remove an item from the cart.

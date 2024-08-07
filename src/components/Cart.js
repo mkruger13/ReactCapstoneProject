@@ -8,23 +8,31 @@ import { removeFromCart, setShipping } from "../store/actions.js";
 import { Button, Modal } from "react-bootstrap";
 import "./Cart.css";
 
+// Cart component.
 export default function Cart() {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const shipping = useSelector((state) => state.cart.shipping);
   const dispatch = useDispatch();
   const [showInfo, setShowInfo] = useState(false);
 
+  // Function to remove an item from the cart.
   const handleRemoveItem = (id) => {
     dispatch(removeFromCart(id));
   };
 
+  // Function to select shipping method.
   const handleSelectShipping = (option) => {
     dispatch(setShipping(option));
   };
 
+  // Calculate total price.
   const totalPrice =
     cartItems.reduce((sum, item) => sum + item.price, 0) +
     (shipping === "shipping" ? 70 : shipping === "pickup" ? 30 : 0);
+
+  // Function to format price.
+  const formatPrice = (price) =>
+    price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
     <div className="cart-container">
@@ -37,7 +45,12 @@ export default function Cart() {
             <div className="cart-item" key={item.id}>
               <div className="cart-item-details">
                 <div className="cart-item-name">{item.title}</div>
-                <div className="cart-item-price">R{item.price}</div>
+                <div className="cart-item-color">
+                  {item.selectedColor ? `Color: ${item.selectedColor}` : ""}
+                </div>
+                <div className="cart-item-price">
+                  R{formatPrice(item.price)}
+                </div>
               </div>
               <Button
                 variant="link"
@@ -71,7 +84,7 @@ export default function Cart() {
               </Button>
             </label>
           </div>
-          <h3>Total Price: R{totalPrice}</h3>
+          <h3>Total Price: R{formatPrice(totalPrice)}</h3>
         </>
       )}
       <Modal show={showInfo} onHide={() => setShowInfo(false)}>
